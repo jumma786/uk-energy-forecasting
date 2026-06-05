@@ -9,8 +9,11 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Model Files
-*.pkl
+# Ignore joblib files
 *.joblib
+
+# Allow model files inside models folder
+!models/*.pkl
 
 # Environment Variables
 .env
