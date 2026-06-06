@@ -1,21 +1,31 @@
-pandas==3.0.3
-numpy==2.4.6
-scipy==1.17.1
+# Full project dependencies (notebooks, modelling, dashboard app).
+# For the lightweight API runtime only, see requirements-api.txt.
+# Minimum-version ranges keep installs reproducible without pinning to
+# releases that may not exist on a given platform.
 
-scikit-learn==1.9.0
-xgboost==3.2.0
-shap
+# Core data stack
+pandas>=2.0
+numpy>=1.26
+scipy>=1.11
+pyarrow>=14.0          # read/write the processed .parquet datasets
 
-matplotlib==3.10.9
-seaborn==0.13.2
-plotly
+# Machine learning
+scikit-learn>=1.3
+xgboost>=2.0
+shap>=0.44
+joblib>=1.3
 
-requests==2.34.2
-pyarrow==22.0.0
+# Visualisation
+matplotlib>=3.8
+seaborn>=0.13
+plotly>=5.18
 
-joblib==1.5.3
+# Utilities
+requests>=2.31
 
-jupyter==1.1.1
-ipykernel==7.2.0
+# Notebook environment
+jupyter>=1.0
+ipykernel>=6.29
 
-streamlit
+# Web app
+streamlit>=1.30
