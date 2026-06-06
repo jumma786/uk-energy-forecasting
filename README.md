@@ -1,5 +1,10 @@
 # UK Electricity Demand Forecasting Using XGBoost
 
+**🔗 Live Demo:** [uk-energy-forecasting.streamlit.app](https://uk-energy-forecasting-gcnwnb9swdljzetdjwtkjj.streamlit.app/)
+&nbsp;|&nbsp; **💻 Source:** [github.com/jumma786/uk-energy-forecasting](https://github.com/jumma786/uk-energy-forecasting)
+
+![CI](https://github.com/jumma786/uk-energy-forecasting/actions/workflows/ci.yml/badge.svg)
+
 ## Project Overview
 
 This project develops an end-to-end machine learning solution for forecasting UK electricity demand using historical demand data, weather conditions, calendar effects, and renewable energy generation data.
