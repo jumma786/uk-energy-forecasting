@@ -349,6 +349,61 @@ UK-Electricity-Demand-Forecasting/
 
 ---
 
+## Development, API & MLOps
+
+The forecasting logic has been refactored out of the notebooks into a tested
+`src/` package, with a REST API, containerisation and CI.
+
+### Project layout (code)
+
+```text
+src/
+├── config.py            # paths & constants
+├── schema.py            # canonical 29-feature model schema
+├── data/load.py         # load processed features
+├── features/            # lag, rolling & calendar feature engineering
+├── models/predict.py    # model loading + DemandForecaster wrapper
+└── api/                 # FastAPI prediction service
+tests/                   # pytest suite (schema, features, model, API)
+.github/workflows/ci.yml # ruff lint + pytest on Python 3.10 & 3.11
+Dockerfile               # container image for the API
+```
+
+### Run the API
+
+```bash
+pip install -r requirements-dev.txt
+uvicorn src.api.main:app --reload
+# Interactive docs at http://localhost:8000/docs
+```
+
+Example request:
+
+```bash
+curl -X POST http://localhost:8000/predict \
+  -H "Content-Type: application/json" \
+  -d '{"temperature_mean": 2.0, "temperature_max": 4.0, "is_weekend": 0}'
+```
+
+### Run with Docker
+
+```bash
+docker build -t uk-energy-api .
+docker run -p 8000:8000 uk-energy-api
+```
+
+### Lint & test
+
+```bash
+ruff check src tests
+pytest -q
+```
+
+Tests that depend on the trained model or processed data skip automatically
+when those artifacts are absent, so the suite stays green in any environment.
+
+---
+
 ## Future Improvements
 
 Potential enhancements include:

@@ -1,0 +1,22 @@
+[project]
+name = "uk-energy-forecasting"
+version = "1.0.0"
+description = "UK electricity demand forecasting with XGBoost — pipeline, API and tests."
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+# Lint application code and tests; never touch the vendored virtualenv.
+extend-exclude = ["venv", ".venv", "notebooks", "data", "models"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+ignore = ["E501"]  # line length handled by the formatter
+

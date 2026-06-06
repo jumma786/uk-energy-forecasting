@@ -1,0 +1,10 @@
+# Normalise line endings so CSVs and code stop showing up as fully rewritten.
+* text=auto eol=lf
+
+# Treat data/model/binary artifacts as binary (no eol munging, no diffs).
+*.csv text eol=lf
+*.parquet binary
+*.pkl binary
+*.joblib binary
+*.pbix binary
+*.png binary

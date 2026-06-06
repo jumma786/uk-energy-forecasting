@@ -1,0 +1,15 @@
+venv/
+.venv/
+.git/
+.github/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+notebooks/
+data/
+reports/
+dashboard/
+tests/
+*.md
+.gitignore
+.gitattributes

@@ -1,0 +1,5 @@
+# Development & CI tooling (installed on top of requirements.txt).
+-r requirements-api.txt
+pytest>=8.0
+ruff>=0.5
+httpx>=0.27
